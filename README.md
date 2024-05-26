@@ -46,9 +46,6 @@ const articleSchema = new mongoose.Schema({
     <button type="submit" class="btn btn-primary">Save</button>
     </form>
 ```
-```js
-
-```
 以表单形式创建文章，通过post方式将表单内数据更改并传递到数据库。
 #### 更改文章内容
 ```ejs
