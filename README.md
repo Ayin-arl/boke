@@ -47,11 +47,9 @@ const articleSchema = new mongoose.Schema({
     </form>
 ```
 ```js
-app.get('/new', (req, res) => {
-  res.render('new');
-})
+
 ```
-以表单形式创建文章，通过post方式将表单传递到数据库。
+以表单形式创建文章，通过post方式将表单内数据更改并传递到数据库。
 #### 更改文章内容
 ```ejs
  <form action="/<%= article._id %>?_method=PUT" method="POST">
@@ -78,9 +76,25 @@ app.get('/new', (req, res) => {
 app.get('/edit/:id', async (req, res) => {
     const one = await article.findOne({ _id: req.params.id });
     res.render('edit', { article: one })
+
+app.put('/:id', async (req, res) => {
+    let data = {}
+    data.title = req.body.title
+    data.description = req.body.description
+    data.markdown=req.body.markdown
+
+    var one = await article.findOne({ _id: req.params.id });
+    if (one != null) {
+        one.title = data.title;
+        one.description = data.description;
+        one.markdown=data.markdown;
+        await one.save();       
+    }  
+    res.redirect(`/display/${req.params.id}`);
+})
 })
 ```
-通过put的形式将更改后的表单传递至数据库。
+先get得到原先存储数据，再通过put的形式将更改后的表单数据传递至数据库。
 #### 查看文章
 ```js
 app.get('/display/:id', async (req, res) => {
