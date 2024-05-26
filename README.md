@@ -121,6 +121,7 @@ articleSchema.pre('validate', function(next) {
 })
 ```
 ```ejs
+
 ```
 其中pre代表此过程在所有过程中优先级最高，检测markdown内容并通过marked函数转译为html。
 ## 工作量统计
