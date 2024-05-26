@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+  <title>Blog</title>
+</head>
+
+<body>
+
+<div class="container">
+    <h1 class="mb-1"><%= article.title %></h1>
+    <div class="text-muted mb-2">
+         <%= article.description %>
+    </div>
+    <a href="/" class="btn btn-secondary">All Articles</a>
+    <a href="/edit/<%= article._id %>" class="btn btn-info">Edit</a>
+
+    <div>
+      <%-article.html %>
+    </div>
+
+</div>
+
+</body>
+</html>

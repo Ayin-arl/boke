@@ -1,0 +1,36 @@
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+  <title>Blog</title>
+</head>
+
+<body>
+<div class="container">
+
+        <h1>New Article</h1>
+
+  <form action="/new" method="POST">
+
+    <div>
+    <label for="title">Title</label>
+    <input required type="text" name="title" id="title" class="form-control">
+    </div>
+
+    <div>
+    <label for="description">Description</label>
+    <textarea name="description" id="description" class="form-control"></textarea>
+    </div>
+
+    <div>
+    <label for="markdown">Markdown</label>
+    <textarea name="markdown" id="markdown" class="form-control"></textarea>
+    </div>
+
+    <a href="/"  class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+</div>
+</body>
+</html>
